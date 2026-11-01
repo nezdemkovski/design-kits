@@ -1,0 +1,72 @@
+<!doctype html>
+<html data-theme="light">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/kit.css">
+<script src="../dist/kit.js"></script>
+<script>
+  const theme = new URLSearchParams(location.search).get("theme");
+  if (theme) document.documentElement.dataset.theme = theme;
+</script>
+<style>
+  .hdr { padding: 72px 17px 0; }
+  .nm { font-size: 28px; font-weight: 700; letter-spacing: -.4px; }
+  .heat { display: grid; grid-template-rows: repeat(7, 14.5px); grid-auto-flow: column; grid-auto-columns: 14.5px; gap: 3px; margin-top: 16px; }
+  .heat i { border-radius: 2px; }
+</style>
+</head>
+<body>
+<pd-status-bar time="12:58"></pd-status-bar>
+<div class="pd-circle pd-floating pd-glass" style="top:63px;left:16px"><pd-icon name="back" size="24"></pd-icon></div>
+
+<div class="hdr">
+  <div class="nm" style="margin-top:56px">Alex Parker</div>
+  <div class="pd-secondary">@testuser <span class="pd-tertiary">· Since Oct 2026</span></div>
+  <div class="pd-hr" style="margin-top:16px"></div>
+  <div class="heat" id="heat"></div>
+</div>
+
+<div class="pd-section">
+  <div class="pd-section-header pd-eyebrow">Now playing<b>12</b></div>
+  <div class="pd-rail">
+    <div class="pd-tile"><pd-cover igdb="co4jni" grade="A" class="large" width="104"></pd-cover><span>Elden Ring</span></div>
+    <div class="pd-tile"><pd-cover igdb="cobfzp" grade="A" class="large" width="104"></pd-cover><span>Hollow Knight</span></div>
+    <div class="pd-tile"><pd-cover igdb="co1tmz" grade="S" class="large" width="104"></pd-cover><span>Star Wars: Knights of the Old Republic</span></div>
+    <div class="pd-tile"><pd-cover igdb="cob9dh" class="large" width="104"></pd-cover><span>Celeste</span></div>
+  </div>
+</div>
+
+<div class="pd-section">
+  <div class="pd-section-header pd-eyebrow">Recently reviewed</div>
+  <div class="pd-review">
+    <pd-cover igdb="co1r7f" grade="B" seal-size="28"></pd-cover>
+    <div class="body">
+      <div class="head"><span class="pd-avatar">A</span><div><b>Alex Parker</b><small>The Last of Us <i>· 2013</i></small></div><time>2 weeks ago</time></div>
+      <p>Tense encounters and a story that stays with you.</p>
+      <div class="reactions"><span class="pd-chip">❤️ 4</span><span class="pd-chip">🔥 2</span><span class="pd-chip"><pd-icon name="smile" size="16"></pd-icon></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="pd-section" style="padding:0 17px;display:flex;gap:8px">
+  <pd-seal grade="S" size="40"></pd-seal><pd-seal grade="A" size="40"></pd-seal><pd-seal grade="B" size="40"></pd-seal>
+  <pd-seal grade="C" size="40"></pd-seal><pd-seal grade="D" size="40"></pd-seal><pd-seal grade="F" size="40"></pd-seal>
+</div>
+
+<nav class="pd-dock">
+  <div class="pd-tabs pd-glass">
+    <span class="pd-tab on"><pd-icon name="ctrl" size="26"></pd-icon></span>
+    <span class="pd-tab"><pd-icon name="books"></pd-icon></span>
+    <span class="pd-tab"><pd-icon name="spark"></pd-icon></span>
+    <span class="pd-tab"><pd-icon name="updown" size="18"></pd-icon></span>
+  </div>
+  <div class="pd-circle pd-glass"><pd-icon name="search" size="24"></pd-icon></div>
+  <div class="pd-circle pd-glass"><pd-icon name="plus" size="24"></pd-icon></div>
+</nav>
+<script>
+  const levels = [0,0,0,1,0,3,0,4,0,2,0,0,1,0,0,2,1,0,4,0,1,0,0,3,0,2,1,0];
+  heat.innerHTML = Array.from({ length: 133 }, (_, i) => `<i class="pd-heat-${levels[i % levels.length]}"></i>`).join("");
+</script>
+</body>
+</html>

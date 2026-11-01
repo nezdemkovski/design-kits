@@ -1,0 +1,117 @@
+/* Playdamnit design kit: shared base and components for Doop frames.
+   Colors come from tokens.css; values that the app derives in code live here. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+:root {
+  --pd-space-1: 2px; --pd-space-2: 4px; --pd-space-3: 8px; --pd-space-4: 12px;
+  --pd-space-5: 16px; --pd-space-6: 24px; --pd-space-7: 32px; --pd-space-8: 40px;
+  --pd-radius-card: 20px; --pd-radius-control: 12px;
+  --pd-radius-cover: 6px; --pd-radius-cover-large: 10px;
+
+  --pd-glass: color-mix(in srgb, var(--pd-surface) 72%, transparent);
+  --pd-sheet-backdrop: #E4E4E9;
+  --pd-status-dot: #B9B9C0;
+  --pd-badge: color-mix(in srgb, var(--pd-warning) 12%, var(--pd-surface));
+  --pd-heat-1: color-mix(in srgb, var(--pd-brand) 30%, transparent);
+  --pd-heat-2: color-mix(in srgb, var(--pd-brand) 50%, transparent);
+  --pd-heat-3: color-mix(in srgb, var(--pd-brand) 75%, transparent);
+  --pd-heat-4: var(--pd-brand);
+}
+:root[data-theme="dark"] { --pd-sheet-backdrop: #000; --pd-status-dot: #5A5C63; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] { --pd-sheet-backdrop: #000; --pd-status-dot: #5A5C63; }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 402px; min-height: 100vh; position: relative; padding-bottom: 120px;
+  background: var(--pd-background); color: var(--pd-label);
+  font: 17px/1.3 -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -.2px; -webkit-font-smoothing: antialiased;
+}
+body.pd-sheet { background: var(--pd-sheet-backdrop); }
+img { display: block; object-fit: cover; }
+
+/* Text */
+.pd-eyebrow { font-size: 13px; font-weight: 500; color: var(--pd-tertiary-label); }
+.pd-eyebrow b { font-weight: 600; font-size: 12px; margin-left: 6px; }
+.pd-secondary { color: var(--pd-secondary-label); }
+.pd-tertiary { color: var(--pd-tertiary-label); }
+.pd-hr { height: 1px; background: var(--pd-separator); }
+
+/* Icons and seal (rendered by kit.js) */
+pd-icon { display: inline-grid; flex: none; }
+pd-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+pd-seal { display: inline-block; flex: none; line-height: 0; }
+pd-seal text { font: 46px "Archivo Black", sans-serif; fill: var(--pd-grade-ink); text-anchor: middle; dominant-baseline: central; }
+
+/* Status bar */
+pd-status-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 54px; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 28px 0 58px; font-weight: 600; font-size: 17px;
+}
+pd-status-bar .r { display: flex; gap: 6px; align-items: center; }
+pd-status-bar .dots { display: flex; gap: 2.5px; }
+pd-status-bar .dots i { width: 3.5px; height: 3.5px; border-radius: 50%; background: var(--pd-status-dot); }
+pd-status-bar .bat { width: 27px; height: 13px; border-radius: 4px; background: currentColor; position: relative; }
+pd-status-bar .bat::after { content: ""; position: absolute; right: -3px; top: 4px; width: 1.5px; height: 5px; border-radius: 1px; background: currentColor; }
+
+/* Liquid glass */
+.pd-glass {
+  background: var(--pd-glass);
+  backdrop-filter: blur(18px) saturate(1.8); -webkit-backdrop-filter: blur(18px) saturate(1.8);
+  box-shadow: 0 6px 16px var(--pd-panel-shadow), inset 0 0 0 .5px var(--pd-glass-highlight);
+}
+.pd-circle { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; }
+.pd-circle.pd-floating { position: absolute; z-index: 30; }
+
+/* Dock: <nav class="pd-dock"><div class="pd-tabs pd-glass"><span class="pd-tab on">… */
+.pd-dock { position: absolute; left: 17px; right: 17px; bottom: 30px; height: 52px; display: flex; gap: 10px; z-index: 30; }
+.pd-dock .pd-tabs { flex: 1; border-radius: 26px; display: flex; align-items: center; justify-content: space-between; padding: 0 5px; }
+.pd-dock .pd-tab { width: 50px; height: 42px; border-radius: 21px; display: grid; place-items: center; }
+.pd-dock .pd-tab.on { background: var(--pd-fill-strong); }
+.pd-dock .pd-circle { width: 52px; height: 52px; }
+
+/* Sections */
+.pd-section { margin-top: 32px; }
+.pd-section-header { padding: 0 20px; margin-bottom: 12px; display: flex; align-items: center; }
+.pd-card { background: var(--pd-surface); border-radius: var(--pd-radius-card); }
+.pd-pill { height: 38px; padding: 0 13px; border-radius: 19px; display: inline-flex; align-items: center; gap: 7px; font-size: 17px; font-weight: 500; flex: none; }
+.pd-pill.on { background: var(--pd-fill-strong); }
+.pd-pill small { font-size: 13px; color: var(--pd-secondary-label); }
+.pd-chip { height: 34px; padding: 0 12px; border-radius: 17px; background: var(--pd-fill); display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--pd-secondary-label); }
+
+/* Covers: <pd-cover igdb="co4jni" grade="A" size="104"> */
+pd-cover { display: block; position: relative; flex: none; }
+pd-cover img { width: 100%; aspect-ratio: 3 / 4; border-radius: var(--pd-radius-cover); box-shadow: 0 0 0 .5px rgb(0 0 0 / 10%); }
+pd-cover[size="large"] img, pd-cover.large img { border-radius: var(--pd-radius-cover-large); }
+pd-cover pd-seal { position: absolute; top: -9px; right: -8px; }
+
+/* Rail of game tiles */
+.pd-rail { display: flex; gap: 10px; padding: 0 16px; overflow: hidden; }
+.pd-tile { width: 104px; flex: none; }
+.pd-tile > span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 8px; font-size: 12px; font-weight: 500; line-height: 15px; height: 30px; }
+
+/* Avatar */
+.pd-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--pd-raised); display: grid; place-items: center; font-size: 14px; font-weight: 600; flex: none; }
+
+/* Review card */
+.pd-review { margin: 0 16px; padding: 16px 0; border-bottom: 1px solid var(--pd-fill); display: flex; gap: 16px; }
+.pd-review > pd-cover { width: 64px; }
+.pd-review .body { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.pd-review .head { display: flex; gap: 12px; align-items: flex-start; }
+.pd-review .head > div { flex: 1; }
+.pd-review .head b { display: block; font-size: 15px; font-weight: 500; }
+.pd-review .head small { font-size: 12px; color: var(--pd-secondary-label); }
+.pd-review .head small i { font-style: normal; color: var(--pd-tertiary-label); }
+.pd-review .head time { font-size: 11px; color: var(--pd-tertiary-label); }
+.pd-review p { font-size: 16px; line-height: 21px; }
+.pd-review .reactions { display: flex; gap: 6px; }
+
+/* Activity heatmap levels: <i class="pd-heat-2"> */
+.pd-heat-0 { background: var(--pd-activity-empty); }
+.pd-heat-1 { background: var(--pd-heat-1); }
+.pd-heat-2 { background: var(--pd-heat-2); }
+.pd-heat-3 { background: var(--pd-heat-3); }
+.pd-heat-4 { background: var(--pd-heat-4); }
