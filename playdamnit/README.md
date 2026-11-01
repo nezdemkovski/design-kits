@@ -9,9 +9,9 @@ frame that loads the kit picks it up.
 ```html
 <html data-theme="light">  <!-- light | dark | auto (follows the OS) -->
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v1/playdamnit/dist/tokens.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v1/playdamnit/dist/kit.css">
-  <script src="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v1/playdamnit/dist/kit.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/tokens.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/kit.css">
+  <script src="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/kit.js"></script>
 </head>
 ```
 
@@ -45,4 +45,4 @@ python3 scripts/build_tokens.py ~/Apps/playdamnit-ios/Packages/PlaydamnitKit/Sou
 
 jsDelivr caches branch URLs for up to 12 hours, so frames pin a tag. After a
 change, push a new tag (`playdamnit-v2`) and bump the URLs, or purge the
-cache: `https://purge.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v1/playdamnit/dist/kit.css`.
+cache: `https://purge.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/kit.css`.
