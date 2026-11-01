@@ -9,9 +9,9 @@ frame that loads the kit picks it up.
 ```html
 <html data-theme="light">  <!-- light | dark | auto (follows the OS) -->
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/tokens.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/kit.css">
-  <script src="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/kit.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v3/playdamnit/dist/tokens.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v3/playdamnit/dist/kit.css">
+  <script src="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v3/playdamnit/dist/kit.js"></script>
 </head>
 ```
 
@@ -33,6 +33,7 @@ dark frame must set `data-theme="dark"` explicitly rather than `auto`.
   - `<pd-seal grade="A" size="34" rim>`
   - `<pd-cover igdb="co4jni" grade="A" width="104">` (or `src="…"`)
   - `<pd-status-bar time="12:58">`
+- `assets/`: brand lockups and mascot, light and dark. `<img class="pd-logo">` swaps by theme.
 - `demo/profile.html`: a sample page; add `?theme=dark` to see dark mode.
 
 ## Updating tokens
@@ -44,5 +45,5 @@ python3 scripts/build_tokens.py ~/Apps/playdamnit-ios/Packages/PlaydamnitKit/Sou
 ## Releasing
 
 jsDelivr caches branch URLs for up to 12 hours, so frames pin a tag. After a
-change, push a new tag (`playdamnit-v2`) and bump the URLs, or purge the
-cache: `https://purge.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v2/playdamnit/dist/kit.css`.
+change, push a new tag (`playdamnit-v3`) and bump the URLs, or purge the
+cache: `https://purge.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-v3/playdamnit/dist/kit.css`.

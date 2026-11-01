@@ -115,3 +115,11 @@ pd-cover pd-seal { position: absolute; top: -9px; right: -8px; }
 .pd-heat-2 { background: var(--pd-heat-2); }
 .pd-heat-3 { background: var(--pd-heat-3); }
 .pd-heat-4 { background: var(--pd-heat-4); }
+
+/* Brand logo that follows the theme: <img class="pd-logo" alt="Play, damn it!"> */
+:root { --pd-logo: url("../assets/playdamnit-lockup-inline-light.svg"); }
+:root[data-theme="dark"] { --pd-logo: url("../assets/playdamnit-lockup-inline-dark.svg"); }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] { --pd-logo: url("../assets/playdamnit-lockup-inline-dark.svg"); }
+}
+img.pd-logo { content: var(--pd-logo); object-fit: contain; }
