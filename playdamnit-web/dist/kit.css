@@ -42,8 +42,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .pw-sidebar .logo { display: block; margin-bottom: 12px; padding: 0 4px; }
 .pw-sidebar .logo img { width: 200px; height: auto; object-fit: contain; }
 .pw-sidebar .me { display: flex; align-items: center; gap: 12px; padding: 0 4px; margin-bottom: 4px; }
-.pw-sidebar .me b { display: block; font-size: 14px; font-weight: 700; }
-.pw-sidebar .me span { display: block; font: 11px var(--font-mono); color: var(--muted-foreground); }
+.pw-sidebar .me .name { display: block; font-size: 14px; font-weight: 700; }
+.pw-sidebar .me .handle { display: block; font: 11px var(--font-mono); color: var(--muted-foreground); }
 .pw-sidebar nav { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
 .pw-nav {
   position: relative; height: 44px; display: flex; align-items: center; gap: 12px; padding: 0 16px;
@@ -87,6 +87,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .pw-badge.dropped { color: var(--status-dropped); }
 .pw-badge.on_hold { color: var(--status-on_hold); }
 .pw-badge.want_to_play, .pw-badge.backlog { color: var(--status-want_to_play); }
+/* Filled chips, as the site draws finished and playing */
+.pw-badge.fill { border-color: transparent; color: #000; }
+.pw-badge.fill.finished { background: var(--status-finished); }
+.pw-badge.fill.playing { background: var(--status-playing); }
+.pw-badge.fill.dropped { background: var(--status-dropped); }
+.pw-badge.fill.on_hold { background: var(--status-on_hold); }
 .pw-tag { position: absolute; top: 0; left: 0; background: var(--signal); color: #000; padding: 2px 6px; font: 800 10px var(--font-mono); }
 
 /* Rails and grids of game cards */
@@ -94,6 +100,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .pw-rail > * { flex: 0 0 144px; }
 .pw-grid { display: grid; grid-template-columns: repeat(var(--cols, 6), 1fr); gap: 12px; }
 .pw-card { position: relative; display: block; }
+.pw-card.cover { overflow: visible; } /* seals overhang the corner */
 .pw-card pw-seal { position: absolute; top: -10px; right: -10px; }
 
 /* Panels used for feeds and reviews */

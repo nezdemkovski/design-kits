@@ -7,9 +7,9 @@ radius, Archivo + Archivo Black + JetBrains Mono, red `--signal` and acid green 
 ## Use in a frame
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-web-v1/playdamnit-web/dist/tokens.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-web-v1/playdamnit-web/dist/kit.css">
-<script src="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-web-v1/playdamnit-web/dist/kit.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-web-v2/playdamnit-web/dist/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-web-v2/playdamnit-web/dist/kit.css">
+<script src="https://cdn.jsdelivr.net/gh/nezdemkovski/design-kits@playdamnit-web-v2/playdamnit-web/dist/kit.js"></script>
 ```
 
 Token names match `globals.css` exactly (`--background`, `--signal`, `--done`,
@@ -20,9 +20,10 @@ Token names match `globals.css` exactly (`--background`, `--signal`, `--done`,
 - `dist/tokens.css`: the `:root` block of `apps/web/src/globals.css`. Generated, do not edit.
 - `dist/kit.css`: fonts, base, the site's utilities (`num`, `eyebrow`, `panel`, `cover`)
   and classes: `pw-sidebar`/`pw-nav`, `pw-main`/`pw-column`, `pw-section`, `pw-btn`
-  (`hot`, `solid`, `ghost`, `sm`), `pw-badge` (status colours), `pw-tag`, `pw-rail`,
+  (`hot`, `solid`, `ghost`, `sm`), `pw-badge` (status colours, `fill` for the solid chips), `pw-tag`, `pw-rail`,
   `pw-grid`, `pw-card`, `pw-review`, `pw-reactions`, `pw-avatar`, `pw-week`, `pw-input`,
   `pw-tabs`, `pw-dialog`, `pw-footer`.
+- Signed-in sidebar profile block: `<a class="me"><span class="pw-avatar">Y</span><div><span class="name">…</span><span class="handle">@…</span></div></a>`.
 - `dist/kit.js`: lucide icons (`<i data-lucide="house"></i>`) and
   `<pw-seal grade="F" size="32" art>`.
 - `assets/`: the site's logo, brand lockup and mimic.
